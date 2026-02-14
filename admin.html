@@ -1,1 +1,56 @@
+<!DOCTYPE html>
+<html>
+<head>
 
+<title>Admin Panel</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+<h2>Admin Login</h2>
+
+<input id="email" placeholder="Email">
+<input id="password" placeholder="Password">
+
+<button onclick="login()">Login</button>
+
+<div id="panel" style="display:none">
+
+<h3>Change Stream Link</h3>
+
+<input id="link">
+
+<button onclick="save()">Save</button>
+
+</div>
+
+<script>
+
+function login(){
+
+if(
+
+document.getElementById("email").value=="admin@tamasha.online"
+&&
+document.getElementById("password").value=="123456"
+
+){
+
+document.getElementById("panel").style.display="block"
+
+}
+
+}
+
+function save(){
+
+alert("Phase 2 میں database connect ہوگا")
+
+}
+
+</script>
+
+</body>
+</html>
