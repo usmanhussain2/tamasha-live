@@ -1,118 +1,118 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>tamasha.online - Live Cricket Match</title>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <!-- HLS.js Library -->
-    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <style>
-        body {
-            margin: 0;
-            background: #0b0f1a;
-            font-family: Arial, sans-serif;
-            color: white;
-            text-align: center;
-        }
+<title>tamasha.online - Live Cricket</title>
 
-        header {
-            background: linear-gradient(90deg, #ff0040, #ff6600);
-            padding: 15px;
-            font-size: 28px;
-            font-weight: bold;
-            letter-spacing: 2px;
-        }
+<link rel="stylesheet" href="style.css">
+<link rel="manifest" href="manifest.json">
 
-        .container {
-            padding: 20px;
-        }
+<script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
 
-        .player-box {
-            max-width: 900px;
-            margin: auto;
-            background: #111;
-            padding: 10px;
-            border-radius: 10px;
-            box-shadow: 0 0 20px rgba(255,0,0,0.5);
-        }
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-3VS0R0PBL8"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-3VS0R0PBL8');
+</script>
 
-        video {
-            width: 100%;
-            border-radius: 10px;
-        }
-
-        .live-badge {
-            background: red;
-            display: inline-block;
-            padding: 5px 12px;
-            margin-bottom: 10px;
-            border-radius: 5px;
-            font-weight: bold;
-            animation: blink 1s infinite;
-        }
-
-        @keyframes blink {
-            50% { opacity: 0.5; }
-        }
-
-        footer {
-            margin-top: 20px;
-            padding: 10px;
-            background: #111;
-            color: #aaa;
-        }
-    </style>
 </head>
+
 <body>
 
 <header>
-    tamasha.online
+
+<div class="logo">tamasha.online</div>
+
+<div class="live">
+<span class="dot"></span>
+LIVE
+</div>
+
 </header>
 
-<div class="container">
 
-    <div class="live-badge">● LIVE CRICKET MATCH</div>
+<!-- Banner Top -->
+<div class="ad-top">
 
-    <div class="player-box">
-        <video id="video" controls autoplay muted></video>
-    </div>
+<script>
+atOptions = {
+'key' : '319541156532c1b5ec4d5610e66b1081',
+'format' : 'iframe',
+'height' : 90,
+'width' : 728
+};
+</script>
+
+<script src="https://www.highperformanceformat.com/319541156532c1b5ec4d5610e66b1081/invoke.js"></script>
 
 </div>
 
-<footer>
-    © 2026 tamasha.online - Live Streaming Platform
-</footer>
+
+<!-- Player -->
+
+<div class="player-container">
+
+<video id="video" autoplay muted controls playsinline></video>
+
+</div>
+
+
+<!-- Middle Ad -->
+
+<div class="ad-middle">
+
+<script>
+atOptions = {
+'key' : '74e4e7f061da8c4547779e7180c85672',
+'format' : 'iframe',
+'height' : 250,
+'width' : 300
+};
+</script>
+
+<script src="https://www.highperformanceformat.com/74e4e7f061da8c4547779e7180c85672/invoke.js"></script>
+
+</div>
+
+
+<!-- Buttons -->
+
+<div class="buttons">
+
+<a href="app.apk" class="btn">
+Download APK
+</a>
+
+<button class="btn install" onclick="installApp()">
+Install App
+</button>
+
+</div>
+
+
+<!-- Social Bar -->
+
+<script src="https://pl28702854.effectivegatecpm.com/61/c8/b4/61c8b4616dd1179f320a530a4b3f77cb.js"></script>
+
+<!-- Popunder -->
+
+<script src="https://pl28702466.effectivegatecpm.com/71/0e/53/710e539fdc1fd944d58acbc5b047131e.js"></script>
+
+
+<script src="config.js"></script>
+<script src="player.js"></script>
+
 
 <script>
 
-var video = document.getElementById('video');
-
-var videoSrc = "https://tencentcdn2.tamashaweb.com/v1/0192bed4e5f11ea506ec1afe4c6abd/0192bed664ae1ea506491378f278b7/Tmshsrtmain.m3u8?timeshift=1&delay=1800&mode=6&lhs_start_unix_s_0=1770817200";
-
-if (Hls.isSupported()) {
-
-    var hls = new Hls();
-
-    hls.loadSource(videoSrc);
-
-    hls.attachMedia(video);
-
-    hls.on(Hls.Events.MANIFEST_PARSED, function() {
-        video.play();
-    });
-
-}
-else if (video.canPlayType('application/vnd.apple.mpegurl')) {
-
-    video.src = videoSrc;
-
-    video.addEventListener('loadedmetadata', function() {
-        video.play();
-    });
-
-}
+if ('serviceWorker' in navigator)
+navigator.serviceWorker.register('sw.js')
 
 </script>
 
