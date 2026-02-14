@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>tamasha.online - Live Cricket Match</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- HLS.js Library -->
+    <script src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
+
+    <style>
+        body {
+            margin: 0;
+            background: #0b0f1a;
+            font-family: Arial, sans-serif;
+            color: white;
+            text-align: center;
+        }
+
+        header {
+            background: linear-gradient(90deg, #ff0040, #ff6600);
+            padding: 15px;
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 2px;
+        }
+
+        .container {
+            padding: 20px;
+        }
+
+        .player-box {
+            max-width: 900px;
+            margin: auto;
+            background: #111;
+            padding: 10px;
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255,0,0,0.5);
+        }
+
+        video {
+            width: 100%;
+            border-radius: 10px;
+        }
+
+        .live-badge {
+            background: red;
+            display: inline-block;
+            padding: 5px 12px;
+            margin-bottom: 10px;
+            border-radius: 5px;
+            font-weight: bold;
+            animation: blink 1s infinite;
+        }
+
+        @keyframes blink {
+            50% { opacity: 0.5; }
+        }
+
+        footer {
+            margin-top: 20px;
+            padding: 10px;
+            background: #111;
+            color: #aaa;
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    tamasha.online
+</header>
+
+<div class="container">
+
+    <div class="live-badge">● LIVE CRICKET MATCH</div>
+
+    <div class="player-box">
+        <video id="video" controls autoplay muted></video>
+    </div>
+
+</div>
+
+<footer>
+    © 2026 tamasha.online - Live Streaming Platform
+</footer>
+
+<script>
+
+var video = document.getElementById('video');
+
+var videoSrc = "https://tencentcdn2.tamashaweb.com/v1/0192bed4e5f11ea506ec1afe4c6abd/0192bed664ae1ea506491378f278b7/Tmshsrtmain.m3u8?timeshift=1&delay=1800&mode=6&lhs_start_unix_s_0=1770817200";
+
+if (Hls.isSupported()) {
+
+    var hls = new Hls();
+
+    hls.loadSource(videoSrc);
+
+    hls.attachMedia(video);
+
+    hls.on(Hls.Events.MANIFEST_PARSED, function() {
+        video.play();
+    });
+
+}
+else if (video.canPlayType('application/vnd.apple.mpegurl')) {
+
+    video.src = videoSrc;
+
+    video.addEventListener('loadedmetadata', function() {
+        video.play();
+    });
+
+}
+
+</script>
+
+</body>
+</html>
